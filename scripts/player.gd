@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 250.0
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true;
+		$Camera2D/PauseScreen.show()
 	var directionX := Input.get_axis("left", "right")
 	if directionX:
 		velocity.x = directionX * SPEED
@@ -14,3 +17,12 @@ func _physics_process(_delta: float) -> void:
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	move_and_slide()
+
+
+func _on_continue_pressed() -> void:
+	get_tree().paused = false;
+	$Camera2D/PauseScreen.hide()
+
+func _on_quit_pressed() -> void:
+	get_tree().paused = false;
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

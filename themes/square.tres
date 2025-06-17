@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bm5m1ok5fbb37"]
+
+[ext_resource type="FontFile" uid="uid://dinguk5v41xpp" path="res://assets/square.ttf" id="1_vm456"]
+
+[resource]
+default_font = ExtResource("1_vm456")
+default_font_size = 50
