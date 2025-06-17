@@ -2,9 +2,20 @@ extends CharacterBody2D
 
 const SPEED = 250.0
 const isPlayer = true
+var isHidden = false
 var currentShape = Shape.type.WHITE_DISK
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("use"):
+		if isHidden:
+			isHidden = false
+			visible = true
+		else:
+			for body in $Range.get_overlapping_bodies():
+				if "isVent" in body and body.isVent:
+					isHidden = true
+					visible = false
+					position = body.position
 	if Input.is_action_just_pressed("action"):
 		for body in $Range.get_overlapping_bodies():
 			if "isEnemy" in body and body.isEnemy:

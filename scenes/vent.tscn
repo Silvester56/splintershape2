@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdpqrbpolp7f5"]
+
+[ext_resource type="Texture2D" uid="uid://mjntlh023xya" path="res://assets/ground.png" id="1_crv1m"]
+[ext_resource type="Script" path="res://scripts/vent.gd" id="1_vufxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqs8b"]
+
+[node name="Vent" type="StaticBody2D"]
+script = ExtResource("1_vufxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.6, 1.6)
+shape = SubResource("RectangleShape2D_tqs8b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_crv1m")
+region_enabled = true
+region_rect = Rect2(32, 64, 32, 32)

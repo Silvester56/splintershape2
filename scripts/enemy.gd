@@ -37,5 +37,5 @@ func _physics_process(_delta: float) -> void:
 		$Vision.visible = false
 
 func _on_vision_body_entered(body: Node2D) -> void:
-	if currentState != EnemyState.SLEEPING and "isPlayer" in body and body.isPlayer and body.currentShape != currentShape:
+	if currentState != EnemyState.SLEEPING and "isPlayer" in body and body.isPlayer and !body.isHidden and body.currentShape != currentShape:
 		$"..".gameover()
