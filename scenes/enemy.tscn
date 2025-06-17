@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://13h5s7w2mde1"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_7d2p2"]
+[ext_resource type="Texture2D" uid="uid://b66cfltg63n7w" path="res://assets/characters.png" id="2_20fdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu0sm"]
+size = Vector2(32, 30)
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_7d2p2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gu0sm")
+
+[node name="Shape" type="Sprite2D" parent="."]
+texture = ExtResource("2_20fdw")
+region_enabled = true
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="Vision" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
+polygon = PackedVector2Array(0, 0, 150, 50, 150, -50)
+
+[node name="Polygon2D" type="Polygon2D" parent="Vision"]
+color = Color(1, 0, 0, 0.505882)
+polygon = PackedVector2Array(0, 0, 150, 50, 150, -50)
+
+[node name="Speech" type="Label" parent="."]
+offset_left = -27.0
+offset_top = -40.0
+offset_right = 13.0
+text = "zzz..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="body_entered" from="Vision" to="." method="_on_vision_body_entered"]
