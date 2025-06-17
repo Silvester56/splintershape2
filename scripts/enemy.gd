@@ -12,8 +12,9 @@ enum EnemyState {
 @export var directionX = 0
 @export var directionY = 0
 
-var sleepingTextVisibleCharacters = 0
 const SPEED = 100.0
+const isEnemy = true
+var sleepingTextVisibleCharacters = 0
 
 func _ready() -> void:
 	$Shape.region_rect = Rect2(Shape.getSpriteOffset(currentShape), 0, 32, 32)
