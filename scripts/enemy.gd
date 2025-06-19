@@ -11,6 +11,7 @@ enum EnemyState {
 @export var currentShape: Shape.type
 @export var directionX = 0
 @export var directionY = 0
+@export var forceVisionRotation = 0
 
 const SPEED = 100.0
 const isEnemy = true
@@ -20,6 +21,8 @@ func _ready() -> void:
 	$Shape.region_rect = Rect2(Shape.getSpriteOffset(currentShape), 0, 32, 32)
 	$Vision/Polygon2D.color = Shape.getVisionColor(currentShape)
 	$Speech.add_theme_color_override("font_color", Color($Vision/Polygon2D.color, 1))
+	if forceVisionRotation > 0:
+		$Vision.rotation = deg_to_rad(forceVisionRotation)
 
 func _physics_process(_delta: float) -> void:
 	if currentState == EnemyState.PATROL:
@@ -28,7 +31,8 @@ func _physics_process(_delta: float) -> void:
 		if move_and_slide():
 			directionX = -directionX
 			directionY = -directionY
-			$Vision.rotation = $Vision.rotation + deg_to_rad(180)
+			if forceVisionRotation == 0:
+				$Vision.rotation = $Vision.rotation + deg_to_rad(180)
 	elif currentState == EnemyState.ROTATE:
 		$Vision.rotation = $Vision.rotation + 0.04
 	elif currentState == EnemyState.SLEEPING:

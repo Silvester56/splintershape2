@@ -7,6 +7,7 @@
 size = Vector2(32, 30)
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_7d2p2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,8 +19,8 @@ region_enabled = true
 region_rect = Rect2(32, 0, 32, 32)
 
 [node name="Vision" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Vision"]
 polygon = PackedVector2Array(0, 0, 150, 50, 150, -50)

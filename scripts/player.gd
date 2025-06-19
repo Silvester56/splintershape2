@@ -37,7 +37,8 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = directionY * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
-	move_and_slide()
+	if !isHidden:
+		move_and_slide()
 
 func _on_continue_pressed() -> void:
 	get_tree().paused = false;
