@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 250.0
 const isPlayer = true
 var isHidden = false
-var currentShape = Shape.type.WHITE_DISK
+var currentShape = Shape.Type.WHITE_DISK
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("use"):
@@ -19,11 +19,11 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("action"):
 		for body in $Range.get_overlapping_bodies():
 			if "isEnemy" in body and body.isEnemy:
-				if body.currentState == body.EnemyState.SLEEPING:
+				if body.currentState == body.Behavior.SLEEPING:
 					currentShape = body.currentShape
 					$Shape.region_rect = Rect2(Shape.getSpriteOffset(currentShape), 0, 32, 32)
 				else:
-					body.currentState = body.EnemyState.SLEEPING
+					body.currentState = body.Behavior.SLEEPING
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true;
 		$Camera2D/PauseScreen.show()
