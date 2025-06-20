@@ -7,15 +7,24 @@ enum Behavior {
 	SLEEPING
 }
 
-@export var currentState: Behavior
-@export var currentShape: Shape.Type
-@export var directionX = 0
-@export var directionY = 0
-@export var forceVisionRotation = 0
+var currentState: Behavior
+var currentShape: Shape.Type
+var directionX = 0
+var directionY = 0
+var forceVisionRotation = 0
 
 const SPEED = 100.0
 const isEnemy = true
 var sleepingTextVisibleCharacters = 0
+
+func setAttributes(posX, posY, behavior, shape, dX, dY, vision) -> void:
+	position.x = posX
+	position.y = posY
+	currentState = behavior
+	currentShape = shape
+	directionX = dX
+	directionY = dY
+	forceVisionRotation = vision
 
 func _ready() -> void:
 	$Shape.region_rect = Rect2(Shape.getSpriteOffset(currentShape), 0, 32, 32)
