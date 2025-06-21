@@ -49,6 +49,10 @@ func _physics_process(_delta: float) -> void:
 		$Speech.visible_characters = int(floorf(sleepingTextVisibleCharacters)) % 7
 		$Vision.visible = false
 
+func sleep() -> void:
+	currentState = Behavior.SLEEPING
+	$Sleep.play()
+
 func _on_vision_body_entered(body: Node2D) -> void:
 	if currentState != Behavior.SLEEPING and "isPlayer" in body and body.isPlayer and !body.isHidden and body.currentShape != currentShape:
 		$"..".gameover()

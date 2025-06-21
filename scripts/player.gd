@@ -10,20 +10,24 @@ func _physics_process(_delta: float) -> void:
 		if isHidden:
 			isHidden = false
 			visible = true
+			$Vent.play()
 		else:
 			for body in $Range.get_overlapping_bodies():
 				if "isVent" in body and body.isVent:
 					isHidden = true
 					visible = false
 					position = body.position
+					$Vent.play()
 	if Input.is_action_just_pressed("action"):
 		for body in $Range.get_overlapping_bodies():
 			if "isEnemy" in body and body.isEnemy:
 				if body.currentState == body.Behavior.SLEEPING:
 					currentShape = body.currentShape
 					$Shape.region_rect = Rect2(Shape.getSpriteOffset(currentShape), 0, 32, 32)
+					$Copy.play()
 				else:
-					body.currentState = body.Behavior.SLEEPING
+					body.sleep()
+					$Punch.play()
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true;
 		$Camera2D/PauseScreen.show()
