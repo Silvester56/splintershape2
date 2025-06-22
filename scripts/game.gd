@@ -2,6 +2,11 @@ extends Node2D
 
 @export var EnemyScene: PackedScene
 
+var timeOfRun = 0
+var milliseconds
+var seconds
+var minutes
+
 var arrayOfEnemies = [
 	{"x": 18, "y": 6, "behavior": Enemy.Behavior.ROTATE, "shape": Shape.Type.RED_SQUARE},
 	{"x": 15, "y": 18, "behavior": Enemy.Behavior.PATROL, "shape": Shape.Type.RED_SQUARE, "dirX": 1},
@@ -59,6 +64,13 @@ func _ready() -> void:
 		enemyToAdd.setAttributes(e.x * 32 + 16, e.y * 32 + 16, e.behavior, e.shape, dirX, dirY, vision)
 		add_child(enemyToAdd)
 
+func _process(delta: float) -> void:
+	timeOfRun = timeOfRun + delta
+	milliseconds = fmod(timeOfRun, 1) * 1000
+	seconds = fmod(timeOfRun, 60)
+	minutes = fmod(timeOfRun, 3600) / 60
+	$Player/Camera2D/Time.text =  "%02d : %02d : %03d" % [minutes, seconds, milliseconds]
+
 func gameover() -> void:
 	$Player/Camera2D/GameOverScreen.show()
 	get_tree().paused = true
@@ -67,4 +79,9 @@ func gameover() -> void:
 func _on_goal_body_entered(body: Node2D) -> void:
 	$Player/Camera2D/SuccessScreen.show()
 	get_tree().paused = true
+	Global.savedScores.scores.push_front($Player/Camera2D/Time.text)
+	Global.savedScores.scores.sort()
+	if len(Global.savedScores.scores) > 5:
+		Global.savedScores.scores.resize(5)
+	Global.savedScores.save()
 	$Success.play()

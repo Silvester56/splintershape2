@@ -90,7 +90,7 @@ position = Vector2(1136, 976)
 collision_layer = 2
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(80, 80)
+position = Vector2(1297, 1140)
 collision_layer = 2
 script = ExtResource("1_fvkvv")
 
@@ -105,6 +105,22 @@ region_rect = Rect2(0, 0, 32, 32)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
 script = ExtResource("4_aqeh8")
+
+[node name="Time" type="Label" parent="Player/Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -370.0
+offset_right = 64.5
+offset_bottom = -317.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ngje2")
+theme_override_font_sizes/font_size = 20
+text = "00:00:000"
 
 [node name="PauseScreen" type="Control" parent="Player/Camera2D"]
 process_mode = 2

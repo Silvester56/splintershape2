@@ -56,5 +56,5 @@ func sleep() -> void:
 	$Sleep.play()
 
 func _on_vision_body_entered(body: Node2D) -> void:
-	if currentState != Behavior.SLEEPING and "isPlayer" in body and body.isPlayer and !body.isHidden and body.currentShape != currentShape:
+	if currentState == Behavior.SLEEPING and "isPlayer" in body and body.isPlayer and !body.isHidden and body.currentShape != currentShape:
 		$"..".gameover()
