@@ -91,7 +91,7 @@ position = Vector2(1136, 976)
 collision_layer = 2
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(1297, 1140)
+position = Vector2(80, 80)
 collision_layer = 2
 script = ExtResource("1_fvkvv")
 
@@ -233,6 +233,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_ngje2")
 
+[node name="ColorRect" type="ColorRect" parent="Player/Camera2D/GameOverScreen"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 768.0
+color = Color(0, 0, 0, 0.392157)
+
 [node name="Label" type="Label" parent="Player/Camera2D/GameOverScreen"]
 layout_mode = 1
 anchors_preset = 5
@@ -244,12 +250,6 @@ offset_right = 123.5
 offset_bottom = 133.0
 grow_horizontal = 2
 text = "GAME OVER"
-
-[node name="ColorRect" type="ColorRect" parent="Player/Camera2D/GameOverScreen"]
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 768.0
-color = Color(0, 0, 0, 0.392157)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/GameOverScreen"]
 layout_mode = 1
@@ -290,6 +290,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_ngje2")
 
+[node name="ColorRect" type="ColorRect" parent="Player/Camera2D/SuccessScreen"]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 768.0
+color = Color(0, 0, 0, 0.392157)
+
 [node name="Label" type="Label" parent="Player/Camera2D/SuccessScreen"]
 layout_mode = 1
 anchors_preset = 5
@@ -301,12 +307,6 @@ offset_right = 123.5
 offset_bottom = 133.0
 grow_horizontal = 2
 text = "SUCCESS"
-
-[node name="ColorRect" type="ColorRect" parent="Player/Camera2D/SuccessScreen"]
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 768.0
-color = Color(0, 0, 0, 0.392157)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/SuccessScreen"]
 layout_mode = 1
