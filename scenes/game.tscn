@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://duqwd6dq77e2t"]
+[gd_scene load_steps=24 format=4 uid="uid://duqwd6dq77e2t"]
 
 [ext_resource type="Texture2D" uid="uid://mjntlh023xya" path="res://assets/ground.png" id="1_0fj6p"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_fvkvv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://bm5m1ok5fbb37" path="res://themes/square.tres" id="5_ngje2"]
 [ext_resource type="PackedScene" uid="uid://13h5s7w2mde1" path="res://scenes/enemy.tscn" id="6_g70xu"]
 [ext_resource type="PackedScene" uid="uid://bdpqrbpolp7f5" path="res://scenes/vent.tscn" id="8_04gqn"]
+[ext_resource type="Theme" uid="uid://chl2whcfgvnpp" path="res://themes/origami.tres" id="8_thyy5"]
 [ext_resource type="PackedScene" uid="uid://dqaf1l31ro76u" path="res://scenes/volume_slider.tscn" id="9_kivvh"]
 [ext_resource type="AudioStream" uid="uid://dhbule3fc3wkj" path="res://assets/punch.mp3" id="9_tyfsc"]
 [ext_resource type="AudioStream" uid="uid://c2ff1h160t3g8" path="res://assets/copy.mp3" id="11_8wkci"]
@@ -112,15 +113,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.5
-offset_top = -370.0
-offset_right = 64.5
-offset_bottom = -317.0
+offset_left = -69.5
+offset_top = -376.0
+offset_right = 69.5
+offset_bottom = -323.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("5_ngje2")
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("8_thyy5")
 text = "00:00:000"
+horizontal_alignment = 1
 
 [node name="PauseScreen" type="Control" parent="Player/Camera2D"]
 process_mode = 2
