@@ -62,7 +62,9 @@ func _ready() -> void:
 func gameover() -> void:
 	$Player/Camera2D/GameOverScreen.show()
 	get_tree().paused = true
+	$GameOver.play()
 
 func _on_goal_body_entered(body: Node2D) -> void:
 	$Player/Camera2D/SuccessScreen.show()
 	get_tree().paused = true
+	$Success.play()
