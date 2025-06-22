@@ -75,6 +75,18 @@ collision_layer = 2
 position = Vector2(1744, 1200)
 collision_layer = 2
 
+[node name="Vent6" parent="." instance=ExtResource("8_04gqn")]
+position = Vector2(1168, 1328)
+collision_layer = 2
+
+[node name="Vent7" parent="." instance=ExtResource("8_04gqn")]
+position = Vector2(976, 1168)
+collision_layer = 2
+
+[node name="Vent8" parent="." instance=ExtResource("8_04gqn")]
+position = Vector2(1136, 976)
+collision_layer = 2
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(80, 80)
 collision_layer = 2

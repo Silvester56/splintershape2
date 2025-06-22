@@ -32,6 +32,8 @@ func _ready() -> void:
 	$Speech.add_theme_color_override("font_color", Color($Vision/Polygon2D.color, 1))
 	if forceVisionRotation > 0:
 		$Vision.rotation = deg_to_rad(forceVisionRotation)
+	elif directionY == 1:
+		$Vision.rotation = deg_to_rad(90)
 
 func _physics_process(_delta: float) -> void:
 	if currentState == Behavior.PATROL:
